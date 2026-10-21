@@ -524,3 +524,149 @@ body:has(#contact:target) .nav-15__nav-shell::before,
 @media (max-width: 520px) {
   .about-info, .about-stats { grid-template-columns: 1fr; }
 }
+
+
+
+
+
+.tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  padding: 40px 20px;
+  background: #000c1a;
+}
+
+.tech-row img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.tech-row img:hover {
+  transform: translateY(-6px) scale(1.15);
+}
+
+/* Black logos (GitHub, Vercel) need a light tile on dark backgrounds */
+.tech-row img.on-light {
+  background: #fff;
+  border-radius: 10px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .tech-row { gap: 18px; }
+  .tech-row img { width: 40px; height: 40px; }
+}
+
+
+/* ================= CONTACT ================= */
+.contact-section {
+  min-height: auto;
+  padding: clamp(32px, 6vw, 72px) clamp(24px, 6vw, 64px) 120px; /* extra space for the fixed nav */
+  background: linear-gradient(rgba(17,18,20,.72), rgba(17,18,20,.82)), url("../image/backcon.jpg") center / cover no-repeat;
+}
+
+.contact-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px; max-width: 1050px; margin: 0 auto;
+}
+
+.contact-item {
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  padding: 28px 20px; min-width: 0; text-align: center;
+  border: 1px solid rgba(255,255,255,.09); border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+  box-shadow: 0 14px 30px rgba(0,0,0,.18);
+  color: inherit; text-decoration: none;
+  transition: transform .25s ease, border-color .25s ease;
+}
+.contact-item:hover { transform: translateY(-4px); border-color: rgba(74,222,128,.35); }
+
+.contact-item__icon {
+  display: grid; width: 54px; height: 54px; place-items: center;
+  border: 1px solid rgba(74,222,128,.25); border-radius: 14px;
+  background: rgba(74,222,128,.1); color: var(--accent);
+}
+.contact-item__icon svg, .contact-socials svg, .contact-cta .btn svg {
+  width: 22px; height: 22px; fill: none; stroke: currentColor;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.contact-item span { display: block; color: #9ca3af; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+.contact-item strong { display: block; margin-top: 4px; color: #f9fafb; font-size: .95rem; overflow-wrap: anywhere; }
+
+.contact-cta { max-width: 560px; margin: 48px auto 0; text-align: center; }
+.contact-cta p { margin-bottom: 24px; font-size: 1rem; }
+
+.contact-socials { display: flex; justify-content: center; gap: 12px; margin-top: 28px; }
+.contact-socials a {
+  display: grid; width: 48px; height: 48px; place-items: center; border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12); color: #f9fafb;
+  transition: transform .25s ease, border-color .25s ease, color .25s ease;
+}
+.contact-socials a:hover { transform: translateY(-3px); border-color: rgba(74,222,128,.5); color: var(--accent); }
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ================= PROJECTS ================= */
+.projects-section {
+  min-height: auto;
+  padding: clamp(32px, 6vw, 72px) 0 120px;  
+}
+
+.projects-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px; max-width: none; margin: 0;      /* no max-width, no auto margins */
+}
+
+.project-card {
+  display: flex; flex-direction: column; min-width: 0; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.09); border-radius: 18px;
+  background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+  box-shadow: 0 14px 30px rgba(0,0,0,.18);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.project-card:hover { transform: translateY(-4px); border-color: rgba(74,222,128,.35); }
+
+.project-card__thumb {
+  display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover;
+  background: linear-gradient(135deg, rgba(74,222,128,.18), rgba(34,211,238,.08));
+  border-bottom: 1px solid rgba(255,255,255,.09);
+}
+
+.project-card__body { display: flex; flex: 1; flex-direction: column; gap: 12px; padding: 22px; }
+.project-card__body h3 { margin: 0; color: #f9fafb; font-size: 1.1rem; }
+.project-card__body p { flex: 1; font-size: .92rem; line-height: 1.65; }
+
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.project-tags li {
+  padding: 4px 10px; border: 1px solid rgba(74,222,128,.25); border-radius: 999px;
+  background: rgba(74,222,128,.08); color: var(--accent);
+  font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
+
+.project-links { display: flex; gap: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.09); }
+.project-links a {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: #f9fafb; font-size: .85rem; font-weight: 600; text-decoration: none;
+  transition: color .2s ease;
+}
+.project-links a:hover { color: var(--accent); }
+.project-links svg {
+  width: 16px; height: 16px; fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+@media (max-width: 900px) {
+  .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
